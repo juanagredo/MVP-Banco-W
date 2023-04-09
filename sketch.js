@@ -18,6 +18,17 @@ function preload() {
     screens[11] = loadImage('./images/credito/form4.png');
     screens[12] = loadImage('./images/credito/form5.png');
     screens[13] = loadImage('./images/credito/form6.png');
+    screens[4 + 10] = loadImage('./images/dashboard/MobileNav.png');
+    screens[5 + 10] = loadImage('./images/dashboard/MobileDashboard.png');
+    screens[6 + 10] = loadImage('./images/dashboard/Mobile Giros Internacionales.png');
+    screens[7 + 10] = loadImage('./images/dashboard/Seguros.png');
+    screens[8 + 10] = loadImage('./images/dashboard/Mobile.png');
+    screens[9 + 10] = loadImage('./images/dashboard/Mobile Agenda 1.png');
+    screens[10 + 10] = loadImage('./images/dashboard/Mobile-3.png');
+    screens[11 + 10] = loadImage('./images/dashboard/Mobile-1.png');
+    screens[12 + 10] = loadImage('./images/dashboard/Mobile-2.png');
+    screens[13 + 10] = loadImage('./images/dashboard/Ahorro.png');
+    screens[14 + 10] = loadImage('./images/dashboard/Crédito.png');
 
 }
 
@@ -41,7 +52,21 @@ function mousePressed() {
     navBar();
     nav();
     changeScreen();
+    returnPerfil();
 }
+
+function returnPerfil() {
+    if (currentScreen > 10 + 4 && currentScreen < 10 + 11) {
+        button({
+            xButton: 20,
+            yButton: 20,
+            wButton: 35,
+            hButton: 30,
+            screen: 14
+        });
+    }
+}
+
 
 //para mostrar cada pantalla
 function showScreen() {
@@ -71,32 +96,58 @@ function button({
 
 //para abrir el menu
 function navBar() {
-    button({
-        xButton: 327,
-        yButton: 26,
-        wButton: 45,
-        hButton: 45,
-        screen: 0
-    });
+
+    if (currentScreen > 10 + 3 && currentScreen < 10 + 15) {
+        button({
+            xButton: 327,
+            yButton: 80,
+            wButton: 45,
+            hButton: 45,
+            screen: 0
+        });
+    } else {
+
+        button({
+            xButton: 327,
+            yButton: 26,
+            wButton: 45,
+            hButton: 45,
+            screen: 0
+        });
+    }
 }
 
 function nav() {
-    button({ // W contigo
-        xButton: 0,
-        yButton: 556,
-        wButton: 390,
-        hButton: 58,
-        screen: 1 // cambien el numero de acuerdo a lo que necesiten 
-    })
 
-    button({ //Despliegue de tipos de crédito
-        xButton: 0,
-        yButton: 324,
-        wButton: 390,
-        hButton: 58,
-        screen: 4 // cambien el numero de acuerdo a lo que necesiten 
-    })
+    if (currentScreen === 0) {
 
+        button({ // W contigo
+            xButton: 0,
+            yButton: 556,
+            wButton: 390,
+            hButton: 58,
+            screen: 1 // cambien el numero de acuerdo a lo que necesiten 
+        })
+
+        button({ //Despliegue de tipos de crédito
+            xButton: 0,
+            yButton: 324,
+            wButton: 390,
+            hButton: 58,
+            screen: 4 // cambien el numero de acuerdo a lo que necesiten 
+        })
+
+        button({
+            xButton: 31,
+            yButton: 208,
+            wButton: 328,
+            hButton: 58,
+            screen: 10 + 4 // cambien el numero de acuerdo a lo que necesiten 
+        })
+
+    }
+
+    if (currentScreen === 4) {
     button({ //Microcredito
         xButton: 0,
         yButton: 382,
@@ -105,15 +156,9 @@ function nav() {
         screen: 5 // cambien el numero de acuerdo a lo que necesiten 
     })
 
-
-
-
-
-
-
 }
 
-
+}
 
 // pongan los otros botones aqui 
 function changeScreen() {
@@ -253,6 +298,23 @@ function changeScreen() {
                 screen: 5 // cambien el numero de acuerdo a lo que necesiten 
             })
             break;
+
+        case 14:
+
+            for (let i = 0; i < 2; i++) {
+                for (let j = 0; j < 3; j++) {
+
+                    button({
+                        xButton: 16 + (184 * i),
+                        yButton: 276 + (134 * j),
+                        wButton: 160,
+                        hButton: 122,
+                        screen: 10 + 5 + (i) + (j * 2) // cambien el numero de acuerdo a lo que necesiten 
+                    });
+                }
+            }
+            break;
+
 
     }
 
